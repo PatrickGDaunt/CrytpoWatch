@@ -7,7 +7,8 @@ Search an API for current data on a cryptocurrency
  * [Setup] (#setup)
 
 ## General info
- * Pull the price, volume, and L1 graph of a specific cryptocurreny from an API(https://coingecko.com/api/documentations/v3)
+ * Pull the price, volume, and L1 graph of a specific cryptocurreny from an API
+ * (https://coingecko.com/api/documentations/v3)
 
 ## Technologies
 Project is created with:
