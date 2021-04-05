@@ -49,7 +49,7 @@ body, html {
 
 /*data display hover selector*/
 #data:hover {
-    color: rgba(4, 2, 44, 0.88);
+    color: rgba(4, 2, 44, 0.87);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     text-decoration: underline;
