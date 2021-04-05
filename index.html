@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<!--
+    Author: Patrick
+    A web page for search cryptocurrency pricesS
+-->
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,21 +35,30 @@
 </head>
 
 <body>
-    <div class="container box">
+    <!---->
+    <div class="container-fluid">
+        <!---->
         <div class="row">
+            <!---->
             <form class="col-xs-12">
+                <!---->
                 <div role="banner"><h1><strong>Crypto Watch</strong></h1></div>
-                <div class="form-group text">
+                <!---->
+                <div class="form-group" id="text">
                     <label for="formGroup">Seach cryptocurrency:</label>
-                    <input type="text" class="form-control" id="formGroup" placeholder="Cryptocurrency">
+                    <input type="text" class="form-control" id="formInput" placeholder="Cryptocurrency">
+                    <input  type="submit" value="Go!" />
+
                 </div>
-                <div class="col-xs-12" role="main">
-                    <div class="display-5"><strong>Price:</strong></div>
-                    <div class="display-5"><strong>Volume:</strong></div>
-                    <div class="display-5"><strong>Graph here</strong></div>
+                <!---->
+                <div class="col-xs-12" role="main" id="data">
+                    <p><strong>Price:</strong></p>
+                    <p><strong>Volume:</strong></p>
+                    <p><strong>Graph here:</strong></p>
+                    <img src="" alt="" />
                 </div>
             </form>
         </div>
-    </div>  
+    </div>
 </body>
 </html>

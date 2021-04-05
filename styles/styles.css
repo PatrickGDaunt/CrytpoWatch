@@ -3,6 +3,7 @@
 * Crypto Watch styles sheet
 */
 
+/*page formatting, combined body and html selectors, with background image*/
 body, html {
     height: 100%;
     width: 100%;    
@@ -11,32 +12,54 @@ body, html {
     /*alignment and scale*/
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
 }
-
-.text {
+/*container selector*/
+.container-fluid {
     color: black;
-    font-weight: bold;
-    text-align: left;
-    font-style: oblique;
-}
-
-.container {
-    color: black;
-    text-align: center;
     background-color: rgba(255, 231, 189, 0.5);
+    text-align: center;
     height: 100%;
-    font-family: "Copperplate Gothic";
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
 }
 
+/*row selector*/
 .row {
     height: 100%;
     justify-content: center;
     align-items: center;
-    
-}
 }
 
+/*Search bar text selector with declaration block*/
+#text {
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    font-style: oblique;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
+}
 
+/*Search bar text hover selector*/
+#text:hover {
+    color: rgb(197, 0, 30);
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+}
+
+/*data display hover selector*/
+#data:hover {
+    color: rgba(4, 2, 44, 0.88);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: rgb(60, 52, 45);
+}
+
+/*paragraph selector, declaration for the first-letter with multiuple properties*/
+p:first-letter {
+    color: rgb(34, 34, 31);
+    font-size: 2em;
+}
 
 
