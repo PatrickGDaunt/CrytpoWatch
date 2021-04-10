@@ -6,7 +6,9 @@
 /*page formatting, combined body and html selectors, with background image*/
 body, html {
     height: 100%;
-    width: 100%;    
+    width: 100%;
+    margin: 0px; 
+    padding: 0.5px;
     /*image*/
     background-image: url("btc_bg.jpg");
     /*alignment and scale*/
@@ -32,7 +34,7 @@ body, html {
 
 /*Search bar text selector with declaration block*/
 #text {
-    color: black;
+    color: rgb(34, 34, 31);
     font-weight: bold;
     text-align: left;
     font-style: oblique;
@@ -41,10 +43,9 @@ body, html {
 
 /*Search bar text hover selector*/
 #text:hover {
-    color: rgb(197, 0, 30);
+    color: rgba(34, 34, 31, 0.9);
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
 }
 
 /*data display hover selector*/
@@ -52,14 +53,29 @@ body, html {
     color: rgba(4, 2, 44, 0.87);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    text-decoration: underline;
     text-decoration-color: rgb(60, 52, 45);
 }
 
 /*paragraph selector, declaration for the first-letter with multiuple properties*/
 p:first-letter {
     color: rgb(34, 34, 31);
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
+/*button styling*/
+button {
+    display: inline-block;
+    background-color: rgba(254, 238, 92, 0.75);
+    padding: 0.25em;
+    text-align: center;
+    cursor: pointer;
+}
 
+button:hover {
+    background-color: rgba(192, 173, 0, 0.75);
+}
+
+button:active {
+    transform: translateY(15px);
+    text-shadow: 0 2px rgb(34, 34, 31);
+}

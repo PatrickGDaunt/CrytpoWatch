@@ -19,45 +19,45 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Internal JS -->
-    <script src="scripts/scripts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">    
 </head>
-
 <body>
     <!---->
-    <div class="container-fluid">
+    <div class="container-fluid" id="bg">
         <!---->
         <div class="row">
-            <!---->
-            <form class="col-xs-12">
+            <div class="col-xs-12">
                 <!---->
                 <div role="banner"><h1><strong>Crypto Watch</strong></h1></div>
                 <!---->
                 <div class="form-group" id="text">
-                    <label for="formGroup">Seach cryptocurrency:</label>
-                    <input type="text" class="form-control" id="formGroup" placeholder="Cryptocurrency">
-                    <input type="submit" value="Go!" class="form-control" id="formGroup"/>
+                    <label for="coins-list">Select cryptocurrency via id:</label>
+                    <select name="coins" class="form-control" id="coins-list"></select>
+                    <label for="currencies-list">Select currency:</label>
+                    <select name="vsCurrency" class="form-control" id="currencies-list">                        
+                    </select>                                      
                 </div>
+                <div><button type="button" id="Button" class="form-group" onclick="acceptValues()">Request</button></div>
                 <!---->
-                <div class="col-xs-12" role="main" id="data">
-                    <p><strong>Price:</strong></p>
-                    <p><strong>Volume:</strong></p>
-                    <p><strong>Graph here:</strong></p>
+                <div role="main" id="data">
+                    <p><strong>Coin: <span id="coin"></span></strong></p>
+                    <p><strong>Currency: <span id="vs-currency"></span></strong></p>
+                    <p><strong>Value: <span id="value"></span></strong></p>
                     <img src="" alt="" />
                 </div>
-            </form>
+            </div>            
         </div>
-    </div>
+    </div>   
+<!-- Internal JS -->
+<script type="text/javascript" src="scripts/scripts.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
 </body>
 </html>
