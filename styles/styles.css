@@ -33,7 +33,7 @@ body, html {
 }
 
 /*Search bar text selector with declaration block*/
-#text {
+#text, #data {
     color: rgb(34, 34, 31);
     font-weight: bold;
     text-align: left;
@@ -52,23 +52,30 @@ body, html {
 #data:hover {
     color: rgba(4, 2, 44, 0.87);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
     text-decoration-color: rgb(60, 52, 45);
 }
 
 /*paragraph selector, declaration for the first-letter with multiuple properties*/
 p:first-letter {
     color: rgb(34, 34, 31);
-    font-size: 1.5em;
+    font-size: 10em;
+}
+
+/* styling for <select> list boxes*/
+#coins-list, #currencies-list, #coin, #vs-currency, #value {
+    width: 400px;
+    text-align: left;
+    background-color:  rgba(255, 231, 189, 0.5);
+    color: black;
 }
 
 /*button styling*/
 button {
-    display: inline-block;
     background-color: rgba(254, 238, 92, 0.75);
     padding: 0.25em;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
+    align-items: left;
 }
 
 button:hover {
@@ -76,6 +83,7 @@ button:hover {
 }
 
 button:active {
-    transform: translateY(15px);
+    transform: translateY(10px);
     text-shadow: 0 2px rgb(34, 34, 31);
 }
+
