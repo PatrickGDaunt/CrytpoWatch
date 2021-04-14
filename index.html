@@ -25,7 +25,7 @@
     <!---->
     <div class="container-fluid" id="bg">
         <!---->
-        <div class="row">
+        <div class="row" id="row">
             <div class="col-xs-12">
                 <!---->
                 <div role="banner"><h1><strong>Crypto Watch</strong></h1></div>
@@ -41,17 +41,24 @@
                     <button type="button" id="Button" class="form-group" onclick="acceptValues()">Request</button>
                 </div>
                 <!---->
-                <div role="main" id="data">
+                <div role="main" id="data" class="">
                     <p><h4><strong>Coin: </strong><span id="coin"></span></h4></p>
                     <p><h4><strong>Currency: </strong><span id="vs-currency"></span></h4></p>
-                    <p><h4><strong>Price: </strong><span id="value"></span></h4></p>
-                    <img src="" alt="" />
+                    <p><h4><strong>Price: </strong><span id="value"></span></h4></p>                    
                 </div>
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div> 
             </div>            
         </div>
     </div>   
+
 <!-- Internal JS -->
 <script type="text/javascript" src="scripts/scripts.js"></script>
+
+<!-- Chart JS-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
