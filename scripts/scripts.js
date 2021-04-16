@@ -139,9 +139,9 @@ async function getPrice(coin, currency) {
 function displayPrice(coin="bitcoin", currency="cad") { 
     let value = getPrice(coin, currency).then(data =>{
         let value = data[coin][currency];
-        coinID.textContent += coin;
-        vsCurrencyID.textContent += currency;
-        valueID.textContent += value;       
+        coinID.textContent = coin;
+        vsCurrencyID.textContent = currency;
+        valueID.textContent = value;       
     });        
 }
 
@@ -194,7 +194,6 @@ function displayMarketChart(coin, currency) {
                     backgroundColor: "cadetblue",
                     borderWidth: 2,
                     tension: 0.15,
-                    scalesFontColor: "#3c342d"
                 }]
             };       
             let config = {
@@ -202,17 +201,20 @@ function displayMarketChart(coin, currency) {
                 data, 
                 options: {
                     responsive: true,
-                    color: "#3c342d",
                     plugins: {
                         legend: {
                             position: 'top',
+                            labels: {
+                                color: "black"
+                            }
                         },
                         title: {
                             display: true,
-                            text: 'Market Chart\n(past 24)'
+                            text: 'Market Chart\n(past 24)',
+                            color: "rgba(79, 13, 209, 0.87)"
                         },
                         datalabels: {
-                            color: "#3c342d",
+                            color: "black",
                             font: {
                                 weight: "bold",
                                 size: 20
@@ -224,14 +226,22 @@ function displayMarketChart(coin, currency) {
                             display: true,
                             title: {
                                 display: true,
-                                text: "MM/DD hh:mm:ss"
-                            }                        
+                                text: "MM/DD hh:mm:ss",
+                                color:"black"
+                            },
+                            ticks: {
+                                color: "black"
+                            }                       
                         },
                         y: {
                             display: true,
                             title: {
                                 display: true,
-                                text: `${currency}`
+                                text: `${currency}`,
+                                color:"black"
+                            },
+                            ticks: {
+                                color: "black"                                
                             } 
                         }
                     },
