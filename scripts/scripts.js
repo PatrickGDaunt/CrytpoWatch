@@ -139,9 +139,9 @@ async function getPrice(coin, currency) {
 function displayPrice(coin="bitcoin", currency="cad") { 
     let value = getPrice(coin, currency).then(data =>{
         let value = data[coin][currency];
-        coinID.textContent = coin;
-        vsCurrencyID.textContent = currency;
-        valueID.textContent = value;       
+        coinID.textContent += coin;
+        vsCurrencyID.textContent += currency;
+        valueID.textContent += value;       
     });        
 }
 
@@ -164,6 +164,11 @@ async function getMarketChart(coin, currency) {
         alert(`Error fetching API\nStatus: ${response.status}\n${response.statusText}\n${error}`);
     }
 }
+
+function convertTime(unixTime) {
+    let date = new Date(unixTime);
+    return `${date.getMonth()+1}/${date.getDay()}   ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+}
 /**
  * Create historical data line graph uing Chart.js
  * display time vs price
@@ -176,30 +181,66 @@ function displayMarketChart(coin, currency) {
             let unixTime = []
             for (let x = 0; x < dataInfo["prices"].length; x++){
                 values.push(dataInfo["prices"][x][1]);
-                unixTime.push(dataInfo["prices"][x][0]);
+                unixTime.push(convertTime(dataInfo["prices"][x][0]));
             }
             let labels = unixTime;
             let data = {
                 labels: labels,
                 datasets: [{
-                    label: `Prices in ${currency}`,
+                    label: `${currency}`,
+                    fill: true,
                     data: values,
-                    borderColor: 'black',
-                    backgroundColor: 'white',
+                    borderColor: "black",
+                    backgroundColor: "cadetblue",
+                    borderWidth: 2,
+                    tension: 0.15,
+                    scalesFontColor: "#3c342d"
                 }]
             };       
-            let config = {type: "line", data, options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
+            let config = {
+                type: "line", 
+                data, 
+                options: {
+                    responsive: true,
+                    color: "#3c342d",
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Market Chart\n(past 24)'
+                        },
+                        datalabels: {
+                            color: "#3c342d",
+                            font: {
+                                weight: "bold",
+                                size: 20
+                            } 
+                        },                          
                     },
-                    title: {
-                        display: true,
-                        text: 'Market Chart'
-                    }   
+                    scales: {
+                        x:{
+                            display: true,
+                            title: {
+                                display: true,
+                                text: "MM/DD hh:mm:ss"
+                            }                        
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: `${currency}`
+                            } 
+                        }
+                    },
+                    interaction: {
+                        mode: "index",
+                        intersect: true
+                    }
                 }
-            }};
+            };
         var myChart = new Chart(document.getElementById("myChart"), config);
         alert(dataInfo["prices"][1][0]);
     });
@@ -211,13 +252,6 @@ function displayMarketChart(coin, currency) {
  async function acceptValues() {
     let coin = document.getElementById("coins-list").value;
     let currency = document.getElementById("currencies-list").value;
-    document.getElementById("row").className = "row-new";
-    document.getElementById("coins-list").className = "form-group-new";
-    document.getElementById("currencies-list").className = "form-group-new";
-    document.getElementById("data").className = "data-display-new";
-    // document.getElementById("vs-currency").className = "data-display-new";
-    // document.getElementById("value").className = "data-display-new";
-    // alert(`Cryptocurrency: ${coin}, Currency: ${currency}`);
     displayPrice(coin, currency);
     displayMarketChart(coin, currency);
 }

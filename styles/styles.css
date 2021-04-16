@@ -15,66 +15,18 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
-/*container selector*/
-.container-fluid {
-    color: black;
-    background-color: rgba(255, 231, 189, 0.5);
+/*container selector
+* display all content 
+*/
+.container-fluid {   
     text-align: left;
     height: inherit;
     width: inherit;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
     border: 5px;
-    border-color: black;
-}
-
-/*row selector*/
-.row {
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    /* background-color: rgba(255, 231, 189, 0.5); */
-}
-
-/*after button action*/
-.row-new {
-    height: 20%;
-    justify-content: left;
-    align-items: left;
-    /* background-color: rgba(255, 231, 189, 0.5); */
-}
-
-/*Search bar text selector with declaration block*/
-.form-group, #data {
-    color: rgb(34, 34, 31);
-    font-weight: bold;
-    text-align: left;
-    font-style: oblique;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
-}
-
-/*after button action*/
-.form-group-new {
-    display: inline-block;
-}
-
-/*after button action*/
-.data-display-new {
-    display: inline-block;
-}
-
-/*Search bar text hover selector*/
-#text:hover {
-    color: rgba(34, 34, 31, 0.9);
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
-}
-
-/*data display hover selector*/
-#data:hover {
-    color: rgba(79, 13, 209, 0.87);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-decoration-color: rgb(60, 52, 45);
+    background-color: rgba(255, 231, 189, 0.5);
 }
 
 /*paragraph selector, declaration for the first-letter with multiuple properties*/
@@ -83,19 +35,44 @@ p:first-letter {
     font-size: 10em;
 }
 
+/*row selector*/
+.row {
+    display: flex;
+    height: 45%;
+    justify-content: center;
+    align-items: center;
+    color: rgb(2, 112, 116);
+    /* background-color: rgba(255, 231, 189, 0.5); */
+}
+
+/*Search bar text selector with declaration block*/
+.form-group{
+    color: rgb(34, 34, 31);
+    font-weight: bold;
+    font-style: oblique;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
+    width: 400px;
+    color: rgb(2, 112, 116);
+}
+/*data display hover selector*/
+.dataDisplay:hover {
+    color: rgba(79, 13, 209, 0.87);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgb(60, 52, 45);
+}
+
 /* styling for <select> list boxes*/
-#coins-list, #currencies-list, #coin, #vs-currency, #value {
+.dataDisplay {
     width: 400px;
     text-align: left;
-    background-color:  rgba(255, 231, 189, 0.5);
-    color: black;
 }
 
 /*button styling*/
 button {
     background-color: rgba(254, 238, 92, 0.75);
     padding: 0.25em;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     align-items: left;
 }
@@ -109,10 +86,15 @@ button:active {
     text-shadow: 0 2px rgb(34, 34, 31);
 }
 
+#coins-list, #currencies-list {
+    background-color: rgba(255, 231, 189, 0.5);
+    color: rgba(79, 13, 209, 0.87);
+}
+
 /*styling for time vs price chart*/
 #myChart {
-    height: 1em;
-    width: 1em;
-    background-color: rgba(79, 13, 209, 0.65);
-    color: brown;
+    height: .9em;
+    width: .8em;
+    color: black;
 }
+
