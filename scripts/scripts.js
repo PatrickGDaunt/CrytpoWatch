@@ -27,14 +27,14 @@ function check() {
 const cryptoListURL = "https://api.coingecko.com/api/v3/coins/list";
 const currencyListURL = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies";
 const coinPriceURL = "https://api.coingecko.com/api/v3/simple/price";
-// const marketChartURL = "https://api.coingecko.com/api/v3/coins/";
 
 const coinsList = document.getElementById("coins-list");
 const currencyList = document.getElementById("currencies-list");
 const coinID = document.getElementById("coin");
 const vsCurrencyID = document.getElementById("vs-currency");
 const valueID = document.getElementById("value");
-// const marketChartID = document.getElementById("market-chart");
+
+var myChart = 0;
 
 // when the page loads
 window.addEventListener("DOMContentLoaded", updateCryptoList());
@@ -190,8 +190,8 @@ function displayMarketChart(coin, currency) {
                     label: `${currency}`,
                     fill: true,
                     data: values,
-                    borderColor: "black",
-                    backgroundColor: "cadetblue",
+                    borderColor: "rgba(79, 13, 209, 1)",
+                    backgroundColor: "rgba(2, 112, 116, 0.5)",
                     borderWidth: 2,
                     tension: 0.15,
                 }]
@@ -211,7 +211,11 @@ function displayMarketChart(coin, currency) {
                         title: {
                             display: true,
                             text: 'Market Chart\n(past 24)',
-                            color: "rgba(79, 13, 209, 0.87)"
+                            color: "rgba(79, 13, 209, 0.95)",
+                            font: {
+                                size: 20,
+                                weight: "bold"
+                            }
                         },
                         datalabels: {
                             color: "black",
@@ -226,7 +230,7 @@ function displayMarketChart(coin, currency) {
                             display: true,
                             title: {
                                 display: true,
-                                text: "MM/DD hh:mm:ss",
+                                text: "MM/dd HH:mm:ss",
                                 color:"black"
                             },
                             ticks: {
@@ -251,8 +255,12 @@ function displayMarketChart(coin, currency) {
                     }
                 }
             };
-        var myChart = new Chart(document.getElementById("myChart"), config);
-        alert(dataInfo["prices"][1][0]);
+        if (typeof myChart === "object") {
+            myChart.destroy();
+            myChart = new Chart(document.getElementById("myChart"), config);
+        } else {
+            myChart = new Chart(document.getElementById("myChart"), config);
+        }                    
     });
 }
 
