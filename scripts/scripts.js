@@ -24,20 +24,10 @@ function check() {
 }
 
 // Variables
-const cryptoListURL = "https://api.coingecko.com/api/v3/coins/list";
-const currencyListURL = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies";
-const coinPriceURL = "https://api.coingecko.com/api/v3/simple/price";
-
-const coinsList = document.getElementById("coins-list");
-const currencyList = document.getElementById("currencies-list");
-const coinID = document.getElementById("coin");
-const vsCurrencyID = document.getElementById("vs-currency");
-const valueID = document.getElementById("value");
-
 var myChart = 0;
 
 // when the page loads
-window.addEventListener("DOMContentLoaded", updateCryptoList());
+window.addEventListener("DOMContentLoaded", updateCoinsList());
 window.addEventListener("DOMContentLoaded", updateCurrencyList());
 
 // var end = getTime();
@@ -49,7 +39,8 @@ window.addEventListener("DOMContentLoaded", updateCurrencyList());
  * @returns data - .json() from fetch url
  */
 async function getCoinsList() {
-    let response = await fetch(cryptoListURL);
+    let coinsListURL = "https://api.coingecko.com/api/v3/coins/list";
+    let response = await fetch(coinsListURL);
     if (response.status == 200) {
         let data = await response.json();
         return data;
@@ -62,8 +53,9 @@ async function getCoinsList() {
 /*
  * Iterate through response.json() and append coin id to list
  */
-function updateCryptoList() {
+function updateCoinsList() {
     getCoinsList().then(data => {
+        let coinsList = document.getElementById("coins-list");
         for (var num = 0; num < data.length; num++){
             let option = createOption(data[num].id);
             coinsList.appendChild(option);
@@ -77,6 +69,7 @@ function updateCryptoList() {
  */
 async function getCurrencyList() {
     try {
+        let currencyListURL = "https://api.coingecko.com/api/v3/simple/supported_vs_currencies";
         var response = await fetch(currencyListURL); 
     } catch (error) {
         alert(error);
@@ -94,6 +87,7 @@ async function getCurrencyList() {
 // Add currencies to currenciesList
 function updateCurrencyList() {
     getCurrencyList().then(function(data) {
+        let currencyList = document.getElementById("currencies-list");
         for (var num = 0; num < data.length; num++){
             let option = createOption(data[num]);
             currencyList.appendChild(option);
@@ -120,6 +114,7 @@ function createOption(text) {
  */
 async function getPrice(coin, currency) { 
     try {
+        let coinPriceURL = "https://api.coingecko.com/api/v3/simple/price";
         let URL = coinPriceURL + `?ids=${coin}&vs_currencies=${currency}`;
         var response = await fetch(URL);
         if (response.status==200){
@@ -137,7 +132,10 @@ async function getPrice(coin, currency) {
  * @param {*} currency 
  */
 function displayPrice(coin="bitcoin", currency="cad") { 
-    let value = getPrice(coin, currency).then(data =>{
+    let value = getPrice(coin, currency).then(data =>{         
+        let coinID = document.getElementById("coin");
+        let vsCurrencyID = document.getElementById("vs-currency");
+        let valueID = document.getElementById("value");
         let value = data[coin][currency];
         coinID.textContent = coin;
         vsCurrencyID.textContent = currency;
