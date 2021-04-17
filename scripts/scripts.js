@@ -3,8 +3,6 @@
 * Description: javascript implementation for index.html
 */
 
-var start = getTime();
-
 /**
  * Testing functions
  * @returns the time in milliseconds the function was called
@@ -172,7 +170,7 @@ function convertTime(unixTime) {
     let date = new Date(unixTime);
     let monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
         "Nov", "Dec"];
-    return `${monthArray[date.getMonth()]}/${date.getDate()}   ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    return `${monthArray[date.getMonth()]} ${date.getDate()}   ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }
 
 /**
