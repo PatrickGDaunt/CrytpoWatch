@@ -163,10 +163,18 @@ async function getMarketChart(coin, currency) {
     }
 }
 
+/**
+ * Passes UNIX time stamp and converts into MM:DD HH:mm:ss format
+ * @param {*} unixTime 
+ * @returns monthArray[date.getMonth()], date.getDay(), date.Hours, date.getMinute(), date.getSeconds()
+ */
 function convertTime(unixTime) {
     let date = new Date(unixTime);
-    return `${date.getMonth()+1}/${date.getDay()}   ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    let monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
+        "Nov", "Dec"];
+    return `${monthArray[date.getMonth()]}/${date.getDate()}   ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }
+
 /**
  * Create historical data line graph uing Chart.js
  * display time vs price
