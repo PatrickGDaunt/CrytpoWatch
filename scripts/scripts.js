@@ -37,8 +37,13 @@ window.addEventListener("DOMContentLoaded", updateCurrencyList());
  * @returns data - .json() from fetch url
  */
 async function getCoinsList() {
-    let coinsListURL = "https://api.coingecko.com/api/v3/coins/list";
-    let response = await fetch(coinsListURL);
+    try {
+        let coinsListURL = "https://api.coingecko.com/api/v3/coins/list";
+        let response = await fetch(coinsListURL);
+    } catch (error) {
+        alert(error);
+
+    }    
     if (response.status == 200) {
         let data = await response.json();
         return data;
@@ -82,10 +87,10 @@ async function getCurrencyList() {
     }  
 }
 
-// Add currencies to currenciesList
+// Add currencies to currencyList
 function updateCurrencyList() {
     getCurrencyList().then(function(data) {
-        let currencyList = document.getElementById("currencies-list");
+        let currencyList = document.getElementById("currency-list");
         for (var num = 0; num < data.length; num++){
             let option = createOption(data[num]);
             currencyList.appendChild(option);
