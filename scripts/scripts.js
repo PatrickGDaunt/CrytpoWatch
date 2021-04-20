@@ -40,16 +40,13 @@ async function getCoinsList() {
     try {
         let coinsListURL = "https://api.coingecko.com/api/v3/coins/list";
         let response = await fetch(coinsListURL);
+        if (response.status == 200) {
+            let data = await response.json();
+            return data;
+        }
     } catch (error) {
-        alert(error);
+        alert(`Error fetching API\nStatus: ${response.status}\n${response.statusText}`);;
 
-    }    
-    if (response.status == 200) {
-        let data = await response.json();
-        return data;
-    }
-    else {
-        alert(`Error fetching API\nStatus: ${response.status}\n${response.statusText}`);
     } 
 }
 
@@ -278,7 +275,7 @@ function displayMarketChart(coin, currency) {
  */
  async function acceptValues() {
     let coin = document.getElementById("coins-list").value;
-    let currency = document.getElementById("currencies-list").value;
+    let currency = document.getElementById("currency-list").value;
     displayPrice(coin, currency);
     displayMarketChart(coin, currency);
 }
